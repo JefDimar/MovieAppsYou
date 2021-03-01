@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Navbar from "../components/Navbar";
+
 import Item from "../components/Card";
 import Banner from "../components/Jumbotron";
 import { Container } from "react-bootstrap";
-import CardGroup from 'react-bootstrap/CardGroup'
+import CardGroup from "react-bootstrap/CardGroup";
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -28,7 +28,6 @@ export default class Homepage extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <Banner />
         <Container>
           <CardGroup>

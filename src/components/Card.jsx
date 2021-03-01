@@ -5,7 +5,7 @@ export default class Item extends Component {
   testClick = (e) => {
     e.preventDefault();
     console.log("yeay keclick ambil id", this.props.movie.id);
-  }
+  };
 
   render() {
     return (
@@ -14,8 +14,7 @@ export default class Item extends Component {
           <Card.Img
             variant="top"
             src={
-              "https://image.tmdb.org/t/p/original" +
-              this.props.movie.poster_path
+              "https://image.tmdb.org/t/p/w500" + this.props.movie.poster_path
             }
           />
           <Card.Body>
