@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 export default class Item extends Component {
+  testClick = (e) => {
+    e.preventDefault();
+    console.log("yeay keclick ambil id", this.props.movie.id);
+  }
+
   render() {
     return (
       <div>
@@ -18,7 +23,7 @@ export default class Item extends Component {
             <Card.Text>{this.props.movie.overview}</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <Button onClick={this.testClick}>Click Me</Button>
           </Card.Footer>
         </Card>
       </div>
