@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Item from "../components/Card";
 import Banner from "../components/Jumbotron";
 import { Container } from "react-bootstrap";

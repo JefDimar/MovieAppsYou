@@ -4,7 +4,16 @@ import { Card, Button } from "react-bootstrap";
 export default class Item extends Component {
   testClick = (e) => {
     e.preventDefault();
-    console.log("yeay keclick ambil id", this.props.movie.id);
+    console.log(
+      "https://api.themoviedb.org/3/movie/" +
+        this.props.movie.id +
+        "?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
+    );
+    console.log(
+      "https://api.themoviedb.org/3/movie/" +
+        this.props.movie.id +
+        "/videos?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
+    );
   };
 
   render() {
@@ -18,7 +27,7 @@ export default class Item extends Component {
             }
           />
           <Card.Body>
-            <Card.Title>{this.props.movie.original_title}</Card.Title>
+            <Card.Title>{this.props.movie.title}</Card.Title>
             <Card.Text>{this.props.movie.overview}</Card.Text>
           </Card.Body>
           <Card.Footer>
