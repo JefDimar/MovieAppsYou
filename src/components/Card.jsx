@@ -17,22 +17,18 @@ export default function Item(props) {
     );
   };
   return (
-    <div>
-      <Card>
-          <Card.Img
-            variant="top"
-            src={
-              "https://image.tmdb.org/t/p/w500" + props.movie.poster_path
-            }
-          />
-          <Card.Body>
-            <Card.Title>{props.movie.title}</Card.Title>
-            <Card.Text>{props.movie.overview}</Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <Button onClick={testClick}>Click Me</Button>
-          </Card.Footer>
-        </Card>
-    </div>
-  )
+    <Card className="w-25 h-50 align-items-stretch me-auto">
+      <Card.Img
+        variant="top"
+        src={"https://image.tmdb.org/t/p/w500" + props.movie.poster_path}
+      />
+      <Card.Body>
+        <Card.Title>{props.movie.title}</Card.Title>
+        <Card.Text>{props.movie.overview}</Card.Text>
+      </Card.Body>
+      <Card.Footer>
+        <Button onClick={testClick}>Click Me</Button>
+      </Card.Footer>
+    </Card>
+  );
 }

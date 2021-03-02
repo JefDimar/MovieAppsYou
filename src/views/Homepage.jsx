@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState, useEffect } from "react";
 import Banner from "../components/Jumbotron";
 import { CardDeck, Container } from "react-bootstrap";
 import Item from "../components/Card";
@@ -12,13 +12,13 @@ export default function Homepage() {
     )
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`${response.status} - ${response.statusText}`)
+          throw new Error(`${response.status} - ${response.statusText}`);
         } else {
-          return response.json()
+          return response.json();
         }
       })
       .then((data) => setMovies(data.results))
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
     // return () => {
     //   cleanup;
     // };
@@ -27,7 +27,7 @@ export default function Homepage() {
     <div>
       <Banner />
       <Container>
-        <CardDeck>
+        <CardDeck className="d-flex flex-wrap justify-content-evenly align-content-stretch">
           {movies.map((movie) => (
             <Item key={movie.id} movie={movie} />
           ))}
