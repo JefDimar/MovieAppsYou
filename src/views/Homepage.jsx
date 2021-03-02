@@ -1,41 +1,32 @@
-import React, { Component } from "react";
-import Item from "../components/Card";
+import React from "react";
 import Banner from "../components/Jumbotron";
-import { Container } from "react-bootstrap";
-import CardGroup from "react-bootstrap/CardGroup";
+import { CardDeck, Container } from "react-bootstrap";
+import Item from "../components/Card";
+import { useState, useEffect } from "react";
 
-export default class Homepage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: [],
-    };
-  }
+export default function Homepage() {
+  const [movies, setMovies] = useState([]);
 
-  componentDidMount() {
+  useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=c2dcee8f08e877d5fb3559af163b7e36"
     )
       .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          movies: data.results,
-        })
-      );
-  }
-
-  render() {
-    return (
-      <div>
-        <Banner />
-        <Container>
-          <CardGroup>
-            {this.state.movies.map((movie) => {
-              return <Item key={movie.id} movie={movie} />;
-            })}
-          </CardGroup>
-        </Container>
-      </div>
-    );
-  }
+      .then((data) => setMovies(data.results));
+    // return () => {
+    //   cleanup;
+    // };
+  }, []);
+  return (
+    <div>
+      <Banner />
+      <Container>
+        <CardDeck>
+          {movies.map((movie) => (
+            <Item key={movie.id} movie={movie} />
+          ))}
+        </CardDeck>
+      </Container>
+    </div>
+  );
 }
