@@ -20,17 +20,18 @@ export default function Item(props) {
     );
   }
   return (
-    <Card className="w-25 h-50 align-items-stretch">
+    <Card className="w-25 h-50 align-items-stretch m-3">
       <Card.Img
         variant="top"
         src={"https://image.tmdb.org/t/p/w500" + props.movie.poster_path}
       />
       <Card.Body>
         <Card.Title>{props.movie.title}</Card.Title>
-        <Card.Text>{props.movie.overview}</Card.Text>
+        <Card.Text>{props.movie.overview.slice(0, 40) + '...'}</Card.Text>
+        <Card.Text>Rating: {props.movie.vote_average}</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <Button onClick={details}>Details</Button>
+        <Button onClick={details} className="m-2">Details</Button>
         <Button onClick={trailers} variant="success">Trailers</Button>
       </Card.Footer>
     </Card>
