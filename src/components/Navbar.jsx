@@ -16,7 +16,7 @@ export default function testing() {
           />
         </Navbar.Brand>
         <span className="font-weight-bolder text-light navbar-text">
-          React challenge no.1!
+          React challenge!
         </span>
       </Navbar>
     </div>

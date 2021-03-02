@@ -2,22 +2,25 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 export default function Item(props) {
-  const testClick = (e) => {
+  const details = (e) => {
     e.preventDefault();
+    // ini buat ambil id
     console.log(
       "https://api.themoviedb.org/3/movie/" +
         props.movie.id +
         "?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
     );
+  };
+  const trailers = (e) => {
     // https://www.youtube.com/watch?v=${key} (link youtube)
     console.log(
       "https://api.themoviedb.org/3/movie/" +
         props.movie.id +
         "/videos?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
     );
-  };
+  }
   return (
-    <Card className="w-25 h-50 align-items-stretch me-auto">
+    <Card className="w-25 h-50 align-items-stretch">
       <Card.Img
         variant="top"
         src={"https://image.tmdb.org/t/p/w500" + props.movie.poster_path}
@@ -27,7 +30,8 @@ export default function Item(props) {
         <Card.Text>{props.movie.overview}</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <Button onClick={testClick}>Click Me</Button>
+        <Button onClick={details}>Details</Button>
+        <Button onClick={trailers} variant="success">Trailers</Button>
       </Card.Footer>
     </Card>
   );

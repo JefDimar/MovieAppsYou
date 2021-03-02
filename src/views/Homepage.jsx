@@ -2,27 +2,20 @@ import React, { useState, useEffect } from "react";
 import Banner from "../components/Jumbotron";
 import { CardDeck, Container } from "react-bootstrap";
 import Item from "../components/Card";
+import useFetch from "../hooks/useFetch";
 
 export default function Homepage() {
   const [movies, setMovies] = useState([]);
-
+  // ini custom hooks
+  const data = useFetch(
+    "https://api.themoviedb.org/3/movie/popular?api_key=c2dcee8f08e877d5fb3559af163b7e36"
+  );
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=c2dcee8f08e877d5fb3559af163b7e36"
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`${response.status} - ${response.statusText}`);
-        } else {
-          return response.json();
-        }
-      })
-      .then((data) => setMovies(data.results))
-      .catch((error) => console.log(error));
+    setMovies(data);
     // return () => {
-    //   cleanup;
-    // };
-  }, []);
+    //   cleanup
+    // }
+  }, [data]);
   return (
     <div>
       <Banner />
