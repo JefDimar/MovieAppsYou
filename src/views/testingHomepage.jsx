@@ -1,31 +1,31 @@
-import React from 'react'
-import Banner from '../components/Jumbotron'
-import {CardDeck, Container} from 'react-bootstrap'
-import Item from '../components/Card'
+// import React from 'react'
+// import Banner from '../components/Jumbotron'
+// import {CardDeck, Container} from 'react-bootstrap'
+// import Item from '../components/Card'
 
-export default function HomepageFunc() {
-  const [movies, setMovies] = useState([])
-  const [loading, setLoading] = useState(false)
+// export default function HomepageFunc() {
+//   const [movies, setMovies] = useState([])
+//   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    fetch("https://api.themoviedb.org/3/movie/popular?api_key=c2dcee8f08e877d5fb3559af163b7e36")
-      .then(response => response.json())
-      .then(data => data ? setMovies(data.results) : setLoading(true))
-    return () => {
-      cleanup
-    }
-  }, [input])
-  return (
-    <div>
-      <Banner/>
-      <Container>
-        <CardDeck>
-          {movies}
-        </CardDeck>
-      </Container>      
-    </div>
-  )
-}
+//   useEffect(() => {
+//     fetch("https://api.themoviedb.org/3/movie/popular?api_key=c2dcee8f08e877d5fb3559af163b7e36")
+//       .then(response => response.json())
+//       .then(data => data ? setMovies(data.results) : setLoading(true))
+//     return () => {
+//       cleanup
+//     }
+//   }, [input])
+//   return (
+//     <div>
+//       <Banner/>
+//       <Container>
+//         <CardDeck>
+//           {movies}
+//         </CardDeck>
+//       </Container>      
+//     </div>
+//   )
+// }
 
 
 // ----------------------------------------------------------------
