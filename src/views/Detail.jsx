@@ -17,7 +17,8 @@ export default function Detail() {
     setMovie(data);
   }, [data]);
   return (
-    <div className="mt-3">
+    <div className="mt-3 w-50 h-50 offset-3">
+      <h1>{movie.title}</h1>
       <Card>
         <Card.Img
           variant="top"
