@@ -12,9 +12,6 @@ export default function Homepage() {
   );
   useEffect(() => {
     setMovies(data);
-    // return () => {
-    //   cleanup
-    // }
   }, [data]);
   return (
     <div>

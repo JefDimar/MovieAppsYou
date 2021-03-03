@@ -1,15 +1,15 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 export default function Item(props) {
+  const history = useHistory();
   const details = (e) => {
     e.preventDefault();
-    // ini buat ambil id
-    console.log(
-      "https://api.themoviedb.org/3/movie/" +
-        props.movie.id +
-        "?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
-    );
+    history.push(`/detail/${props.movie.id}`);
+    
+    console.log("https://api.themoviedb.org/3/movie/" + props.movie.id +
+    "?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US");
   };
   const trailers = (e) => {
     // https://www.youtube.com/watch?v=${key} (link youtube)
