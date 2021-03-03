@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+// import { useDispatch } from "react-redux"
+// import useFetchDetail from "../hooks/useFetchDetail"
 // import ModalTrailer from "../components/ModalTrailer";
 
 export default function Item(props) {
@@ -16,6 +18,12 @@ export default function Item(props) {
     console.log(props.movie.id);
     // setModalShow(true);
   };
+  const favorites = (e) => {
+    e.preventDefault();
+    console.log(props.movie.id)
+    // error disini vvvvvvvvv
+    // const movie = useFetchDetail(`https://api.themoviedb.org/3/movie/${props.movie.id}?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US`)
+  }
 
   return (
     <>
@@ -39,6 +47,9 @@ export default function Item(props) {
           </Button>
           <Button onClick={trailers} variant="success" className="m-2">
             Trailers
+          </Button>
+          <Button onClick={favorites} variant="danger" className="m-2">
+            Add to Favorites
           </Button>
         </Card.Footer>
       </Card>

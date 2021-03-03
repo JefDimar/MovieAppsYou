@@ -1,7 +1,8 @@
 import { createStore } from 'redux'
 
 const initialState = {
-  movies: []
+  movies: [],
+  favorites: []
 }
 
 function reducer(state = initialState, action) {
@@ -10,6 +11,8 @@ function reducer(state = initialState, action) {
   switch(type) {
     case 'MOVIES/FETCHMOVIES':
       return { ...state, movies: payload }
+    case 'FAVORITES/ADDFAVORITES':
+      return { ...state, favorites: [ ...state.favorites, payload ]}
     default:
       return state
   }

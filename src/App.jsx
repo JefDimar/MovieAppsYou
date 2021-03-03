@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-
         {/* Router */}
         <Switch>
         <Route path="/favorite">
