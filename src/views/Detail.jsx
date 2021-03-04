@@ -19,21 +19,20 @@ export default function Detail() {
       id +
       `/videos?api_key=${process.env.REACT_APP_KEY}&language=en-US`
   );
-  console.log(trailer.results);
   useEffect(() => {
     setLoading(Array.isArray(data) && Array.isArray(trailers))
     setTrailer(trailers);
     setMovie(data);
   }, [data, trailers]);
   return (
-    <div className="mt-3 w-50 h-50 offset-3 d-flex flex-row">
+    <div className="mt-3 offset-3 d-flex flex-row">
       {loading ? (
         <h1>Please wait a sec...</h1>
       ) : (
         <>
         <div className="float-left">
           <h1>{movie.title}</h1>
-          <Card>
+          <Card className="w-50 h-50">
             <Card.Img
               variant="top"
               src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
@@ -47,10 +46,10 @@ export default function Detail() {
         </div>
         <div className="float-right">
           <iframe
-            src={`https://www.youtube.com/embed/${trailer?.results?.[0]?.key}`}
+            src={`https://www.youtube.com/embed/${trailer?.results?.[0]?.key}?autoplay=1`}
             title={trailer?.results?.[0]?.name}
-            width="300px"
-            height="150px"
+            width="420" height="315"
+            className="m-3"
           />
         </div>
         </>
