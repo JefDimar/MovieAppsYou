@@ -14,6 +14,13 @@ export default function Homepage() {
   const data = useFetch(
     "https://api.themoviedb.org/3/movie/popular?api_key=c2dcee8f08e877d5fb3559af163b7e36"
   );
+
+  // https://www.youtube.com/watch?v=${key} (link youtube)
+  // console.log(
+  //   "https://api.themoviedb.org/3/movie/" +
+  //     props.movie.id +
+  //     "/videos?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
+  // );
   useEffect(() => {
     dispatch(fetchMovies(data))
   }, [data, dispatch]);
