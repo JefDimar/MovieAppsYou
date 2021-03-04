@@ -10,16 +10,12 @@ export default function Navigation() {
   const dispatch = useDispatch();
   const [word, setWord] = useState("");
   const data = useDebounce(word, 500);
-  // console.log(data)
   const search = (e) => {
-    // console.log(e.target.value)
     setWord(e.target.value);
   };
   const findMovie = (e) => {
     e.preventDefault();
-    // https://api.themoviedb.org/3/search/movie?api_key=c2dcee8f08e877d5fb3559af163b7e36&query=ko
     const query = data.split(" ").join("%20");
-    console.log(query);
     if (!query) {
       dispatch(fetchingMovies());
     } else {
