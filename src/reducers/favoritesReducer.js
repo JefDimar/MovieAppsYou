@@ -1,6 +1,8 @@
-import reducer from "./moviesReducer";
+const initialState = {
+  favorites: []
+}
 
-export default reducer(state, action) {
+function reducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch(type) {
@@ -10,3 +12,5 @@ export default reducer(state, action) {
       return state
   }
 }
+
+export default reducer

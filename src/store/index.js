@@ -1,23 +1,12 @@
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
+import movieReducer from '../reducers/moviesReducer'
+import favoriteReducer from '../reducers/favoritesReducer'
 
-const initialState = {
-  movies: [],
-  favorites: []
-}
+const rootReducer = combineReducers({
+  movie: movieReducer,
+  favorite: favoriteReducer
+})
 
-function reducer(state = initialState, action) {
-  const { type, payload } = action
-
-  switch(type) {
-    case 'MOVIES/FETCHMOVIES':
-      return { ...state, movies: payload }
-    case 'FAVORITES/ADDFAVORITES':
-      return { ...state, favorites: [ ...state.favorites, payload ]}
-    default:
-      return state
-  }
-}
-
-const store = createStore(reducer)
+const store = createStore(rootReducer)
 
 export default store

@@ -1,4 +1,8 @@
-export default function reducer(state, action) {
+const initialState = {
+  movies: []
+}
+
+function reducer(state = initialState, action) {
   const { type, payload } = action
   switch (type) {
     case 'MOVIES/FETCHMOVIES':
@@ -7,3 +11,5 @@ export default function reducer(state, action) {
       return state
   }
 }
+
+export default reducer

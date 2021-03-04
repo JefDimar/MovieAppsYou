@@ -4,7 +4,7 @@ import { Container, CardDeck } from 'react-bootstrap'
 import Item from '../components/Card'
 
 export default function Favorite() {
-  const favorites = useSelector(state => state.favorites)
+  const favorites = useSelector(state => state.favorite.favorites)
   return (
     <div className="mt-3">
       <p>Welcome to favorite page!</p>

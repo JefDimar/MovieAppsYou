@@ -8,7 +8,7 @@ import { fetchMovies } from "../store/actions"
 
 export default function Homepage() {
   // const [movies, setMovies] = useState([]);
-  const movies = useSelector(state => state.movies)
+  const movies = useSelector(state => state.movie.movies)
   const dispatch = useDispatch()
   // ini custom hooks
   const data = useFetch(
