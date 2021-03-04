@@ -10,14 +10,14 @@ export default function Detail() {
   const [loading, setLoading] = useState(true);
 
   const data = useFetchDetail(
-    "https://api.themoviedb.org/3/movie/" +
+    `https://api.themoviedb.org/3/movie/` +
       id +
-      "?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
+      `?api_key=${process.env.REACT_APP_KEY}&language=en-US`
   );
   const trailers = useFetchDetail(
-    "https://api.themoviedb.org/3/movie/" +
+    `https://api.themoviedb.org/3/movie/` +
       id +
-      "/videos?api_key=c2dcee8f08e877d5fb3559af163b7e36&language=en-US"
+      `/videos?api_key=${process.env.REACT_APP_KEY}&language=en-US`
   );
   console.log(trailer.results);
   useEffect(() => {
