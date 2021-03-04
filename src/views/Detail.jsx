@@ -21,7 +21,7 @@ export default function Detail() {
   );
   console.log(trailer.results);
   useEffect(() => {
-    !data && !trailers ? setLoading(true) : setLoading(false);
+    setLoading(Array.isArray(data) && Array.isArray(trailers))
     setTrailer(trailers);
     setMovie(data);
   }, [data, trailers]);
@@ -46,12 +46,12 @@ export default function Detail() {
           </Card>
         </div>
         <div className="float-right">
-          {/* <iframe
-            src={`https://www.youtube.com/embed/${trailer.results[0].key}`}
-            title={trailer.results[0].name}
+          <iframe
+            src={`https://www.youtube.com/embed/${trailer?.results?.[0]?.key}`}
+            title={trailer?.results?.[0]?.name}
             width="300px"
             height="150px"
-          /> */}
+          />
         </div>
         </>
       )}
