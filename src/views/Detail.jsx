@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useFetchDetail from "../hooks/useFetchDetail";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 export default function Detail() {
   const { id } = useParams();
@@ -28,9 +28,7 @@ export default function Detail() {
         <Card.Body className="text-reset">
           <Card.Title>Synopsis</Card.Title>
           <Card.Text>{movie.overview}</Card.Text>
-          <Button variant="primary">Go somewhere</Button>
         </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
       </Card>
     </div>
   );
