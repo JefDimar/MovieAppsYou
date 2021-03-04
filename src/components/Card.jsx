@@ -40,6 +40,7 @@ export default function Item(props) {
         <Card.Img
           variant="top"
           src={"https://image.tmdb.org/t/p/w500" + props.movie.poster_path}
+          alt={props.movie.title}
         />
         <Card.Body>
           <Card.Title className="card-header text-wrap">
