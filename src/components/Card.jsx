@@ -3,8 +3,9 @@ import { Card, Button } from "react-bootstrap";
 import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import useFetchDetail from "../hooks/useFetchDetail";
-import { addFavorites } from "../store/actions";
+import { addFavorites, checkingFav } from "../store/actions";
 // import ModalTrailer from "../components/ModalTrailer";
+import Swal from "sweetalert2";
 
 export default function Item(props) {
   const history = useHistory();
@@ -22,7 +23,15 @@ export default function Item(props) {
   );
   const favorites = (e) => {
     e.preventDefault();
+    Swal.fire({
+      icon: "success",
+      title: "Added to favorite",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     dispatch(addFavorites(movie));
+    //checking for double
+    dispatch(checkingFav(movie));
   };
 
   return (
@@ -31,6 +40,7 @@ export default function Item(props) {
         <Card.Img
           variant="top"
           src={"https://image.tmdb.org/t/p/w500" + props.movie.poster_path}
+          alt={props.movie.title}
         />
         <Card.Body>
           <Card.Title className="card-header text-wrap">

@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import logo from "../logo.svg";
 import { NavLink } from "react-router-dom";
+import useDebounce from "../hooks/useDebounce";
+import { searchMovies, fetchingMovies } from "../store/actions";
+import { useDispatch } from "react-redux";
 
 export default function Navigation() {
+  const dispatch = useDispatch();
+  const [word, setWord] = useState("");
+  const data = useDebounce(word, 500);
+  const search = (e) => {
+    setWord(e.target.value);
+  };
+  const findMovie = (e) => {
+    e.preventDefault();
+    const query = data.split(" ").join("%20");
+    if (!query) {
+      dispatch(fetchingMovies());
+    } else {
+      dispatch(searchMovies(query));
+    }
+  };
   return (
     <div>
       <Navbar bg="dark" fixed="top">
@@ -28,11 +46,12 @@ export default function Navigation() {
               Favorite
             </NavLink>
           </Nav>
-          <form className="d-flex flex-row">
+          <form onSubmit={findMovie} className="d-flex flex-row">
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
+              onChange={search}
             />
             <button className="btn btn-success" type="submit">
               Search
